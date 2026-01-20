@@ -203,10 +203,6 @@ export default function HealthFocusedDashboard() {
             {crops[0]?.name || "grains"} daily to improve gut health, energy
             levels, and immunity naturally.
           </p>
-          <button className="btn btn-light rounded-pill px-4 fw-bold">
-            Explore Health Blog
-          </button>
-
           <div
             className="position-absolute end-0 top-0 bg-success opacity-25"
             style={{
