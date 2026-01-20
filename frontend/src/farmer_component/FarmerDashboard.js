@@ -43,10 +43,10 @@ export default function FarmerDashboard() {
 
       // Fetch both dashboard stats and chart data
       const [dashRes, chartRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/farmer/dashboard", {
+        axios.get("https://saakav1.onrender.com/api/farmer/dashboard", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/farmer/dashboard-charts", {
+        axios.get("https://saakav1.onrender.com/api/farmer/dashboard-charts", {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
