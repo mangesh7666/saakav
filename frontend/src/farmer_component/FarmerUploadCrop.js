@@ -43,7 +43,7 @@ export default function FarmerUploadCrop() {
       data.append("image", form.image);
 
       const res = await axios.post(
-        "http://localhost:5000/api/farmer/upload-crop",
+        "https://saakav1.onrender.com/api/farmer/upload-crop",
         data,
         {
           headers: {
