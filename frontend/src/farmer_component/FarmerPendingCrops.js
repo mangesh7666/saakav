@@ -28,7 +28,7 @@ export default function FarmerPendingCrops() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/farmer/crop/${id}`, {
+      await axios.delete(`https://saakav1.onrender.com/api/farmer/crop/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
