@@ -41,7 +41,7 @@ export default function FarmerSettings() {
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        "http://localhost:5000/api/farmer/change-password",
+        "https://saakav1.onrender.com/api/farmer/change-password",
         {
           currentPassword: form.currentPassword,
           newPassword: form.newPassword,
