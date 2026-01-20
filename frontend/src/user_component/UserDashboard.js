@@ -45,7 +45,7 @@ export default function UserDashboard() {
       try {
         setLoading(true);
         // Replace with your actual hosted URL if not localhost
-        const response = await axios.get("http://localhost:5000/api/user/user/crops");
+        const response = await axios.get("https://saakav1.onrender.com/api/user/user/crops");
         
         // 3. Axios stores the JSON response in 'response.data'
         setCrops(response.data);
