@@ -31,7 +31,7 @@ export default function FarmerHelp() {
       setResponse("");
 
       await axios.post(
-        "http://localhost:5000/api/farmer/help",
+        "https://saakav1.onrender.com/api/farmer/help",
         form,
         {
           headers: {
