@@ -14,7 +14,7 @@ export default function FarmerPendingCrops() {
   const fetchCrops = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/farmer/pending-crops", {
+      const res = await axios.get("https://saakav1.onrender.com/api/farmer/pending-crops", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCrops(res.data);
