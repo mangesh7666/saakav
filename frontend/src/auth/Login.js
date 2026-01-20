@@ -118,10 +118,10 @@ export default function Login() {
               <p className="text-muted small mb-1">
                 New user? <Link to="/register" className="text-success fw-bold text-decoration-none">Create Account</Link>
               </p>
-              <hr className="my-3" />
+{/*<hr className="my-3" />
               <Link to="/admin/login" className="text-danger small fw-semibold text-decoration-none">
                 Switch to Admin Portal
-              </Link>
+              </Link>*/}
             </div>
           </Card.Body>
         </Card>
