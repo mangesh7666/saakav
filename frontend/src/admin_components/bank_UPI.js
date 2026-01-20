@@ -12,7 +12,7 @@ export default function AdminBankUPIDetails() {
     const fetchFarmers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin/bank-upi-details",
+          "https://saakav1.onrender.com/api/admin/bank-upi-details",
           {
             headers: {
               Authorization: `Bearer ${token}`,
