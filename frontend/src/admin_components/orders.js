@@ -10,7 +10,7 @@ export default function AdminCustomerOrders() {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token"); // Assuming token storage
-      const res = await axios.get("http://localhost:5000/api/admin/all-orders", {
+      const res = await axios.get("https://saakav1.onrender.com/api/admin/all-orders", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(res.data);
@@ -28,7 +28,7 @@ export default function AdminCustomerOrders() {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/admin/order/status/${orderId}`, 
+      await axios.put(`https://saakav1.onrender.com/api/admin/order/status/${orderId}`, 
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` }}
       );
