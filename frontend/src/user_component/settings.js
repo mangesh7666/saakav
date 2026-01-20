@@ -31,7 +31,7 @@ export default function UserSettings() {
   // 🔹 Fetch profile
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/user/profile", {
+      .get("https://saakav1.onrender.com/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -76,7 +76,7 @@ export default function UserSettings() {
 
     try {
       await axios.put(
-        "http://localhost:5000/api/user/change-password",
+        "https://saakav1.onrender.com/api/user/change-password",
         {
           currentPassword: profile.currentPassword,
           newPassword: profile.newPassword,
