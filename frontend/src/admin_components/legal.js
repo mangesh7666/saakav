@@ -17,7 +17,7 @@ export default function AdminLegal() {
   const fetchPolicies = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/admin/legal", {
+      const res = await axios.get("https://saakav1.onrender.com/api/admin/legal", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPolicies(res.data);
@@ -48,13 +48,13 @@ export default function AdminLegal() {
     try {
       if (modalType === "add") {
         await axios.post(
-          "http://localhost:5000/api/admin/legal",
+          "https://saakav1.onrender.com/api/admin/legal",
           currentPolicy,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else if (modalType === "edit") {
         await axios.put(
-          `http://localhost:5000/api/admin/legal/${currentPolicy._id}`,
+          `https://saakav1.onrender.com/api/admin/legal/${currentPolicy._id}`,
           currentPolicy,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -71,7 +71,7 @@ export default function AdminLegal() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this policy?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/legal/${id}`, {
+      await axios.delete(`https://saakav1.onrender.com/api/admin/legal/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchPolicies();
