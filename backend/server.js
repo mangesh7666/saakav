@@ -17,7 +17,7 @@ mongoose
 
 /* ================= ROUTES ================= */
 app.use("/api/auth", require("./routes/authRoutes"));      // login/register
-app.use("/api/farmer", require("./routes/farmerroutes")); // farmer profile
+app.use("/api/farmer", require("./routes/farmerRoutes")); // farmer profile
 app.use("/api/admin" , require("./routes/adminRoutes")); //admin profile
 app.use("/api/user" , require("./routes/userRoutes")); //user route
 /* ================= SERVER ================= */
