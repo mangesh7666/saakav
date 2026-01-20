@@ -17,7 +17,7 @@ export default function FarmerPayments() {
       console.log("Token:", token);
 
       const res = await axios.get(
-        "http://localhost:5000/api/farmer/payments",
+        "https://saakav1.onrender.com/api/farmer/payments",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
