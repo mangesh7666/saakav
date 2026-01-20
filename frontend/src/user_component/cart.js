@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://saakav1.onrender.com";
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
