@@ -22,7 +22,7 @@ export default function FarmerBankUPI() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/farmer/bank-details",
+        "https://saakav1.onrender.com/api/farmer/bank-details",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
