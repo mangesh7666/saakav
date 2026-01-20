@@ -13,7 +13,7 @@ export default function AdminApprovedCrops() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/admin/crops/approved",
+        "https://saakav1.onrender.com/api/admin/crops/approved",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCrops(res.data);
