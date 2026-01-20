@@ -14,7 +14,7 @@ export default function FarmerHistory() {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/farmer/history", {
+      const res = await axios.get("https://saakav1.onrender.com/api/farmer/history", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setHistory(res.data);
