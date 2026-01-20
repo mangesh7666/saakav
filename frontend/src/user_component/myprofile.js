@@ -10,7 +10,7 @@ export default function MyProfile() {
   /* ================= FETCH USER PROFILE ================= */
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/user/profile", {
+      .get("https://saakav1.onrender.com/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))
@@ -26,7 +26,7 @@ export default function MyProfile() {
   const saveProfile = async () => {
     try {
       await axios.put(
-        "http://localhost:5000/api/user/profile",
+        "https://saakav1.onrender.com/api/user/profile",
         {
           name: user.name,
           phone: user.phone,
