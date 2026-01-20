@@ -16,7 +16,7 @@ export default function AdminPayments() {
 
   const fetchPayments = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/admin/all-crops",
+      "https://saakav1.onrender.com/api/admin/all-crops",
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setPayments(res.data);
@@ -37,7 +37,7 @@ export default function AdminPayments() {
   const submitPayment = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/crop/payment/${selectedCrop._id}`,
+        `https://saakav1.onrender.com/api/admin/crop/payment/${selectedCrop._id}`,
         {
           paymentStatus: "Paid",
           paymentMode: formData.paymentMode,
