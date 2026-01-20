@@ -25,7 +25,7 @@ export default function AdminHelp() {
       const config = getAuthHeaders();
 
       // Ensure your backend URL is correct
-      const response = await axios.get("http://localhost:5000/api/admin/all-help", config);
+      const response = await axios.get("https://saakav1.onrender.com/api/admin/all-help", config);
       
       setMessages(response.data);
       setError(null);
@@ -47,7 +47,7 @@ export default function AdminHelp() {
     try {
       const config = getAuthHeaders();
       const response = await axios.patch(
-        `http://localhost:5000/api/admin/help/status/${id}`,
+        `https://saakav1.onrender.com/api/admin/help/status/${id}`,
         { status: "resolved" },
         config
       );
