@@ -13,7 +13,7 @@ export default function FarmerApprovedCrops() {
   const fetchApprovedCrops = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/farmer/approved-crops", {
+      const res = await axios.get("https://saakav1.onrender.com/api/farmer/approved-crops", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCrops(res.data);
