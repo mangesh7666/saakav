@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://saakav1.onrender.com";
 
 export default function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
