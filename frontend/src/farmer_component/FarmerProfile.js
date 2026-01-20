@@ -23,7 +23,7 @@ export default function FarmerProfile() {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/farmer/profile",
+          "https://saakav1.onrender.com/api/farmer/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ export default function FarmerProfile() {
       setError("");
 
       await axios.put(
-        "http://localhost:5000/api/farmer/profile",
+        "https://saakav1.onrender.com/api/farmer/profile",
         form,
         {
           headers: {
