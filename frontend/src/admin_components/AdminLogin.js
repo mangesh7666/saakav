@@ -18,7 +18,7 @@ export default function AdminLogin() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/admin-login",
+        "https://saakav1.onrender.com/api/auth/admin-login",
         form
       );
 
