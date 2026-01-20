@@ -23,7 +23,7 @@ export default function AdminSettings() {
     const fetchSettings = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:5000/api/admin/settings", {
+        const res = await axios.get("https://saakav1.onrender.com/api/admin/settings", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -61,7 +61,7 @@ export default function AdminSettings() {
       setLoading(true);
 
       await axios.put(
-        "http://localhost:5000/api/admin/settings/profile",
+        "https://saakav1.onrender.com/api/admin/settings/profile",
         { name: settings.name },
         {
           headers: {
@@ -91,7 +91,7 @@ export default function AdminSettings() {
       setLoading(true);
 
       await axios.put(
-        "http://localhost:5000/api/admin/settings/password",
+        "https://saakav1.onrender.com/api/admin/settings/password",
         {
           currentPassword: settings.currentPassword,
           newPassword: settings.newPassword,
