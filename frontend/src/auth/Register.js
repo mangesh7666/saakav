@@ -110,7 +110,7 @@ export default function Register() {
       setServerError("");
 
       await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://saakav1.onrender.com/api/auth/register",
         form
       );
 
