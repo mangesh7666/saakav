@@ -26,7 +26,7 @@ export default function AdminDashboard() {
     const fetchStats = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin/dashboard-stats",
+          "https://saakav1.onrender.com/api/admin/dashboard-stats",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setData(res.data);
@@ -40,7 +40,7 @@ export default function AdminDashboard() {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin/users/all",
+          "https://saakav1.onrender.com/api/admin/users/all",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setUsers(res.data);
@@ -63,7 +63,7 @@ export default function AdminDashboard() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/admin/users/${id}`,
+        `https://saakav1.onrender.com/api/admin/users/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
