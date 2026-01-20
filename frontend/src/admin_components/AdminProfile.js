@@ -21,7 +21,7 @@ export default function AdminProfile() {
       const fetchProfile = async () => {
         try{
           const res = await axios.get(
-            "http://localhost:5000/api/admin/adminprofile",{
+            "https://saakav1.onrender.com/api/admin/adminprofile",{
             headers: {
               Authorization : `Bearer ${token}`,
             },
@@ -52,7 +52,7 @@ export default function AdminProfile() {
       setError("");
 
       await axios.put(
-        "http://localhost:5000/api/admin/adminprofileupdate",
+        "https://saakav1.onrender.com/api/admin/adminprofileupdate",
         profile,
         {
           headers: {
