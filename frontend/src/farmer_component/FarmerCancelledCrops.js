@@ -13,7 +13,7 @@ export default function FarmerCancelledCrops() {
   const fetchCancelledCrops = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/farmer/cancelled-crops", {
+      const res = await axios.get("https://saakav1.onrender.com/api/farmer/cancelled-crops", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCrops(res.data);
