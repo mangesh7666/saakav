@@ -32,7 +32,7 @@ export default function Login() {
     try {
       setLoading(true);
       setServerError("");
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await axios.post("https://saakav1.onrender.com/api/auth/login", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.role);
       if (res.data.role === "farmer") navigate("/farmer/dashboard");
