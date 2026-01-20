@@ -11,7 +11,7 @@ export default function AdminPublishCrop() {
   // Fetch crops for admin
   const fetchCrops = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/crops", {
+      const res = await axios.get("https://saakav1.onrender.com/api/admin/crops", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCrops(res.data);
@@ -39,7 +39,7 @@ export default function AdminPublishCrop() {
       setLoading(true);
 
       await axios.put(
-        `http://localhost:5000/api/admin/crop/publish/${crop._id}`,
+        `https://saakav1.onrender.com/api/admin/crop/publish/${crop._id}`,
         {
           marketPrice: crop.marketPrice,
           sellingPrice: crop.sellingPrice,
