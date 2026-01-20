@@ -13,7 +13,7 @@ export default function AdminUploadedCrops() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/admin/crops/uploaded",
+        "https://saakav1.onrender.com/api/admin/crops/uploaded",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCrops(res.data);
@@ -32,7 +32,7 @@ export default function AdminUploadedCrops() {
   const handleStatusChange = async (cropId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/crop/status/${cropId}`,
+        `https://saakav1.onrender.com/api/admin/crop/status/${cropId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
