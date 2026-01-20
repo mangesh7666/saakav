@@ -13,7 +13,7 @@ export default function FarmerLegal() {
 
   const fetchLegalContent = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/farmer/legal");
+      const res = await axios.get("https://saakav1.onrender.com/api/farmer/legal");
       setSections(res.data);
     } catch (err) {
       console.error(err);
