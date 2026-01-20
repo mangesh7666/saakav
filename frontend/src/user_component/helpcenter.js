@@ -30,7 +30,7 @@ export default function HelpRequestForm() {
 
   const fetchMyHelps = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/user/help", {
+      const res = await axios.get("https://saakav1.onrender.com/api/user/help", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setHelps(res.data);
@@ -51,7 +51,7 @@ export default function HelpRequestForm() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/user/userhelp",
+        "https://saakav1.onrender.com/api/user/userhelp",
         {
           subject: formData.subject,
           message: formData.message,
