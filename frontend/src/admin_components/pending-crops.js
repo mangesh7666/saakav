@@ -17,7 +17,7 @@ export default function AdminPendingCrops() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/admin/crops/pending",
+        "https://saakav1.onrender.com/api/admin/crops/pending",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCrops(res.data);
@@ -36,7 +36,7 @@ export default function AdminPendingCrops() {
   const handleApprove = async (cropId) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/crop/status/${cropId}`,
+        `https://saakav1.onrender.com/api/admin/crop/status/${cropId}`,
         { status: "Approved" },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -68,7 +68,7 @@ export default function AdminPendingCrops() {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/crop/status/${selectedCropId}`,
+        `https://saakav1.onrender.com/api/admin/crop/status/${selectedCropId}`,
         { status: "Rejected", reason: rejectReason },
         { headers: { Authorization: `Bearer ${token}` } }
       );
