@@ -33,7 +33,7 @@ export default function Login() {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/user/user/crops"
+          "https://saakav1.onrender.com/api/user/user/crops"
         );
         setProducts(res.data);
       } catch (err) {
@@ -80,7 +80,7 @@ export default function Login() {
       setServerError("");
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://saakav1.onrender.com/api/auth/login",
         form
       );
 
@@ -186,7 +186,7 @@ export default function Login() {
             const imageUrl = product.image
               ? product.image.startsWith("http")
                 ? product.image
-                : `http://localhost:5000/uploads/${product.image}`
+                : `https://saakav1.onrender.com/uploads/${product.image}`
               : "https://via.placeholder.com/400x300?text=No+Image";
 
             return (
