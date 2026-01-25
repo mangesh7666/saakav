@@ -12,7 +12,11 @@ const multer = require("multer");
 const path = require("path");
 const LegalContent = require("../models/LegalContent");
 
-cloudinary.config({ secure: true });
+cloudinary.config({ 
+  cloudinary_url: process.env.CLOUDINARY_URL,
+  secure: true
+});
+
 
 
 const storage = new CloudinaryStorage({
