@@ -1,4 +1,6 @@
 const express = require("express");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
@@ -10,14 +12,23 @@ const multer = require("multer");
 const path = require("path");
 const LegalContent = require("../models/LegalContent");
 
-
-// Configure multer for image upload
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) =>
-    cb(null, Date.now() + path.extname(file.originalname)),
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
 });
+
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "saakav/crops",
+    allowed_formats: ["jpg", "png", "jpeg", "webp"],
+  },
+});
+
 const upload = multer({ storage });
+
 
 
 /* ================= GET LOGGED-IN FARMER PROFILE ================= */
@@ -159,7 +170,7 @@ router.put("/bank-details", auth, async (req, res) => {
 router.post("/upload-crop", auth, upload.single("image"), async (req, res) => {
   try {
     const { name, category, quantity, expectedPrice } = req.body;
-    const image = req.file?.filename;
+    const image = req.file?.path; // Cloudinary URL
 
     if (!name || !category || !quantity || !expectedPrice || !image) {
       return res.status(400).json({ message: "All fields are required" });
