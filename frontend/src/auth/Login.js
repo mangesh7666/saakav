@@ -199,7 +199,7 @@ export default function Login() {
                       style={{ objectFit: "cover", height: "100%" }}
                       onError={e => {
                         e.target.src =
-                          "https://via.placeholder.com/400x300?text=No+Image";
+                          "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
                       }}
                     />
                   </div>
