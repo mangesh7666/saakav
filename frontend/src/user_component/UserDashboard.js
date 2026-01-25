@@ -132,64 +132,60 @@ export default function HealthFocusedDashboard() {
           </div>
         ) : (
           <div className="row g-4">
-            {crops.map((crop) => {
-              const health = getHealthBenefit(crop);
-              return (
-                <div className="col-lg-3 col-md-6" key={crop._id}>
-                  <div className="health-card shadow-sm h-100">
-                    <div className="position-relative">
-                      <img
-  src={crop.image || "https://via.placeholder.com/300x200"}
-  alt={crop.name}
-  className="w-100"
-  style={{ height: 200, objectFit: "cover" }}
-  onError={(e) => {
-    e.target.src = "https://via.placeholder.com/300x200";
-  }}
-/>
+           {crops.map((crop) => {
+  const health = getHealthBenefit(crop);
+  return (
+    <div className="col-lg-3 col-md-6" key={crop._id}>
+      <div className="health-card shadow-sm h-100">
+        <div className="position-relative">
+          <img
+            src={crop.image || "https://via.placeholder.com/300x200"}
+            alt={crop.name}
+            className="w-100"
+            style={{ height: 200, objectFit: "cover" }}
+            onError={(e) => {
+              e.target.src = "https://via.placeholder.com/300x200";
+            }}
+          />
+          <div className="position-absolute bottom-0 start-0 p-3">
+            <span className="benefit-badge">
+              {health.icon} {health.tag}
+            </span>
+          </div>
+        </div>
 
-                      <div className="position-absolute bottom-0 start-0 p-3">
-                        <span className="benefit-badge">
-                          {health.icon} {health.tag}
-                        </span>
-                      </div>
-                    </div>
+        <div className="p-4">
+          <h5 className="fw-bold">{crop.name}</h5>
+          <p className="text-muted small">
+            Packed with essential nutrients to support daily energy
+            and overall well-being.
+          </p>
 
-                    <div className="p-4">
-                      <h5 className="fw-bold">{crop.name}</h5>
-                      <p className="text-muted small">
-                        Packed with essential nutrients to support daily energy
-                        and overall well-being.
-                      </p>
+          <div className="d-flex gap-2 flex-wrap mb-3">
+            <span className="badge bg-success-subtle text-success">
+              High Fiber
+            </span>
+            <span className="badge bg-warning-subtle text-warning">
+              Vitamin Rich
+            </span>
+            <span className="badge bg-primary-subtle text-primary">
+              Low Fat
+            </span>
+          </div>
 
-                      <div className="d-flex gap-2 flex-wrap mb-3">
-                        <span className="badge bg-success-subtle text-success">
-                          High Fiber
-                        </span>
-                        <span className="badge bg-warning-subtle text-warning">
-                          Vitamin Rich
-                        </span>
-                        <span className="badge bg-primary-subtle text-primary">
-                          Low Fat
-                        </span>
-                      </div>
+          <div className="d-flex justify-content-between align-items-center">
+            <div>
+              <small className="text-muted">Fresh Price</small>
+              <div className="fw-bold fs-5">₹{crop.sellingPrice}</div>
+              <small className="text-success">✔ No middlemen</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+})}
 
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div>
-                          <small className="text-muted">Fresh Price</small>
-                          <div className="fw-bold fs-5">
-                            ₹{crop.sellingPrice}
-                          </div>
-                          <small className="text-success">
-                            ✔ No middlemen
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         )}
       </section>
