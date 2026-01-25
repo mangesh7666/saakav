@@ -139,15 +139,15 @@ export default function HealthFocusedDashboard() {
                   <div className="health-card shadow-sm h-100">
                     <div className="position-relative">
                       <img
-                        src={
-                          crop.image
-                            ? `https://saakav1.onrender.com/uploads/${crop.image}`
-                            : "https://via.placeholder.com/300x200"
-                        }
-                        alt={crop.name}
-                        className="w-100"
-                        style={{ height: 200, objectFit: "cover" }}
-                      />
+  src={crop.image || "https://via.placeholder.com/300x200"}
+  alt={crop.name}
+  className="w-100"
+  style={{ height: 200, objectFit: "cover" }}
+  onError={(e) => {
+    e.target.src = "https://via.placeholder.com/300x200";
+  }}
+/>
+
                       <div className="position-absolute bottom-0 start-0 p-3">
                         <span className="benefit-badge">
                           {health.icon} {health.tag}
