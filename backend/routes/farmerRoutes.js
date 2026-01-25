@@ -188,7 +188,7 @@ router.post("/upload-crop", auth, upload.single("image"), async (req, res) => {
     await newCrop.save();
     res.json({ message: "Crop uploaded successfully", crop: newCrop });
   } catch (err) {
-    console.error("UPLOAD CROP ERROR:", err);
+   console.error("UPLOAD CROP ERROR:", err.message, err.stack);
     res.status(500).json({ message: "Failed to upload crop" });
   }
 });
