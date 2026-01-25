@@ -187,7 +187,7 @@ export default function Login() {
               ? product.image.startsWith("http")
                 ? product.image
                 : `https://saakav1.onrender.com/uploads/${product.image}`
-              : "https://via.placeholder.com/400x300?text=No+Image";
+              : "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
 
             return (
               <div className="col-md-4" key={product._id}>
