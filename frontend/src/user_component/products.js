@@ -272,11 +272,12 @@ export default function CropListing() {
                   </button>
 
                   <img
-                    src={`${BASE_URL}/uploads/${crop.image}`}
-                    onError={(e)=>e.target.src="https://via.placeholder.com/300"}
-                    className="crop-img"
-                    alt={crop.name}
-                  />
+  src={crop.image || "https://via.placeholder.com/300"}
+  onError={(e) => { e.target.src = "https://via.placeholder.com/300"; }}
+  className="crop-img"
+  alt={crop.name}
+/>
+
 
                   <div className="p-2">
                     <small className="text-muted text-uppercase">
