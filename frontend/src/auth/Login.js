@@ -181,45 +181,39 @@ export default function Login() {
           </Alert>
         )}
 
-        <div className="row g-4">
-          {products.map(product => {
-            const imageUrl = product.image
-              ? product.image.startsWith("http")
-                ? product.image
-                : `https://saakav1.onrender.com/uploads/${product.image}`
-              : "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
+       <div className="row g-4">
+  {products.map(product => {
+    const imageUrl =
+      product.image || "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
 
-            return (
-              <div className="col-md-4" key={product._id}>
-                <Card className="shadow-sm h-100 border-0">
-                  <div style={{ height: "200px", overflow: "hidden" }}>
-                    <Card.Img
-                      src={imageUrl}
-                      alt={product.name}
-                      style={{ objectFit: "cover", height: "100%" }}
-                      onError={e => {
-                        e.target.src =
-                          "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
-                      }}
-                    />
-                  </div>
+    return (
+      <div className="col-md-4" key={product._id}>
+        <Card className="shadow-sm h-100 border-0">
+          <div style={{ height: "200px", overflow: "hidden" }}>
+            <Card.Img
+              src={imageUrl}
+              alt={product.name}
+              style={{ objectFit: "cover", height: "100%" }}
+              onError={e => {
+                e.target.src =
+                  "https://dummyimage.com/400x300/cccccc/000000&text=No+Image";
+              }}
+            />
+          </div>
 
-                  <Card.Body>
-                    <Card.Title className="fw-bold">
-                      {product.name}
-                    </Card.Title>
-                    <Card.Text className="text-muted small">
-                      {product.description || "No description available"}
-                    </Card.Text>
-                    <h6 className="text-success fw-bold">
-                      ₹{product.sellingPrice}
-                    </h6>
-                  </Card.Body>
-                </Card>
-              </div>
-            );
-          })}
-        </div>
+          <Card.Body>
+            <Card.Title className="fw-bold">{product.name}</Card.Title>
+            <Card.Text className="text-muted small">
+              {product.description || "No description available"}
+            </Card.Text>
+            <h6 className="text-success fw-bold">₹{product.sellingPrice}</h6>
+          </Card.Body>
+        </Card>
+      </div>
+    );
+  })}
+</div>
+
       </Container>
 
       {/* ================= LOGIN MODAL ================= */}
