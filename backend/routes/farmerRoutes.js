@@ -167,31 +167,51 @@ router.put("/bank-details", auth, async (req, res) => {
 });
 
 /* ================= UPLOAD CROP ================= */
+/* ================= UPLOAD CROP ================= */
 router.post("/upload-crop", auth, upload.single("image"), async (req, res) => {
   try {
-    const { name, category, quantity, expectedPrice } = req.body;
-    const image = req.file?.path; // Cloudinary URL
+    console.log("UPLOAD CROP REQUEST BODY:", req.body);
+    console.log("UPLOAD CROP FILE INFO:", req.file);
 
+    const { name, category, quantity, expectedPrice } = req.body;
+
+    // Cloudinary URL
+    const image = req.file?.path;
+
+    // Validation
     if (!name || !category || !quantity || !expectedPrice || !image) {
-      return res.status(400).json({ message: "All fields are required" });
+      console.warn("Validation failed: Missing fields or image");
+      return res.status(400).json({ message: "All fields are required, including image" });
     }
 
+    // Save to database
     const newCrop = new Crop({
       farmer: req.user.id,
       name,
       category,
-      quantity,
-      expectedPrice,
+      quantity: Number(quantity),
+      expectedPrice: Number(expectedPrice),
       image,
     });
 
     await newCrop.save();
+
+    console.log("CROP SAVED SUCCESSFULLY:", newCrop);
+
     res.json({ message: "Crop uploaded successfully", crop: newCrop });
   } catch (err) {
-   console.error("UPLOAD CROP ERROR:", err.message, err.stack);
-    res.status(500).json({ message: "Failed to upload crop" });
+    console.error("UPLOAD CROP ERROR:", err.message);
+    console.error(err.stack);
+
+    // Cloudinary-specific error hint
+    if (err.name === "MulterError") {
+      return res.status(500).json({ message: "Image upload failed. Check file size and format." });
+    }
+
+    res.status(500).json({ message: "Failed to upload crop. See server logs for details." });
   }
 });
+
 
 // GET pending crops for logged-in farmer
 router.get("/pending-crops", auth, async (req, res) => {
