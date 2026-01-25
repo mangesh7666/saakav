@@ -17,6 +17,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.1",
     "multer": "^2.0.2",
-    "razorpay": "^2.9.6"
+    "razorpay": "^2.9.6",
+    "cloudinary": "^1.41.0",
+  "multer-storage-cloudinary": "^4.0.0"
   }
 }
