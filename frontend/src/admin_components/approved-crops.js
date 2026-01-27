@@ -40,7 +40,7 @@ export default function AdminApprovedCrops() {
                 <th>Farmer</th>
                 <th>Crop</th>
                 <th>Quantity (kg)</th>
-                <th>Price / kg (₹)</th>
+                <th>Price (₹)</th>
                 <th>Status</th>
               </tr>
             </thead>
