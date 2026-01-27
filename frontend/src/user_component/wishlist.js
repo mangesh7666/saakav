@@ -56,8 +56,12 @@ export default function Wishlist() {
           <div className="col-md-4 col-lg-3" key={crop._id}>
             <div className="card h-100 shadow-sm rounded-4">
               <img
-                src={`${BASE_URL}/uploads/${crop.image}`}
+                src={crop.image || "https://via.placeholder.com/300"}
+                onError={(e) => {
+                  e.target.src = "https://via.placeholder.com/300";
+                }}
                 className="card-img-top"
+                alt={crop.name}
                 style={{ height: "180px", objectFit: "cover" }}
               />
 
