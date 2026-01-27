@@ -120,7 +120,7 @@ export default function FarmerUploadCrop() {
 
             <Col md={6}>
               <Form.Group controlId="cropExpectedPrice">
-                <Form.Label>Expected Price (per kg)</Form.Label>
+                <Form.Label>Expected Total Amount</Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Enter expected price per kg"
