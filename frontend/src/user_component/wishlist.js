@@ -10,7 +10,7 @@ export default function Wishlist() {
   const token = localStorage.getItem("token");
 
   /* =====================
-     FETCH WISHLIST
+      FETCH WISHLIST
   ===================== */
   useEffect(() => {
     const fetchWishlist = async () => {
@@ -26,35 +26,46 @@ export default function Wishlist() {
       }
     };
 
-    fetchWishlist();
-  }, []);
+    if (token) fetchWishlist();
+  }, [token]);
 
   /* =====================
-     REMOVE FROM WISHLIST
+      REMOVE FROM WISHLIST
   ===================== */
   const removeFromWishlist = async (cropId) => {
-    await axios.post(
-      `${BASE_URL}/api/user/wishlist/${cropId}`,
-      {},
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    setWishlist(prev => prev.filter(item => item._id !== cropId));
+    try {
+      await axios.post(
+        `${BASE_URL}/api/user/wishlist/${cropId}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setWishlist((prev) => prev.filter((item) => item._id !== cropId));
+    } catch (err) {
+      console.error("Remove error:", err);
+    }
   };
 
   return (
     <div className="container py-4">
       <h2 className="fw-bold mb-4">❤️ My Wishlist</h2>
 
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <div className="text-center py-5">
+          <div className="spinner-border text-success"></div>
+        </div>
+      )}
 
       {!loading && wishlist.length === 0 && (
-        <p className="text-muted" style ={{marginBottom:280}}>Your wishlist is empty</p>
+        <p className="text-muted text-center" style={{ marginBottom: 280 }}>
+          Your wishlist is empty
+        </p>
       )}
 
       <div className="row g-3">
-        {wishlist.map(crop => (
+        {wishlist.map((crop) => (
           <div className="col-md-4 col-lg-3" key={crop._id}>
-            <div className="card h-100 shadow-sm rounded-4">
+            <div className="card h-100 shadow-sm rounded-4 overflow-hidden">
+              {/* UPDATED IMAGE LOGIC START */}
               <img
                 src={crop.image || "https://via.placeholder.com/300"}
                 onError={(e) => {
@@ -64,12 +75,11 @@ export default function Wishlist() {
                 alt={crop.name}
                 style={{ height: "180px", objectFit: "cover" }}
               />
+              {/* UPDATED IMAGE LOGIC END */}
 
               <div className="card-body">
-                <h6 className="fw-bold">{crop.name}</h6>
-                <p className="mb-1 text-success fw-bold">
-                  ₹{crop.sellingPrice}
-                </p>
+                <h6 className="fw-bold text-truncate">{crop.name}</h6>
+                <p className="mb-2 text-success fw-bold">₹{crop.sellingPrice}</p>
 
                 <button
                   className="btn btn-outline-danger w-100 rounded-pill"
