@@ -61,7 +61,7 @@ export default function AdminUploadedCrops() {
                 <th>Farmer</th>
                 <th>Crop</th>
                 <th>Quantity (kg)</th>
-                <th>Price / kg (₹)</th>
+                <th>Price (₹)</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
