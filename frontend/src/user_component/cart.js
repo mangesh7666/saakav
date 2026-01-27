@@ -158,7 +158,7 @@ export default function Cart() {
                 <div className="row g-0 align-items-center p-3">
                   <div className="col-3 col-md-2">
                     <img
-                      src={`${BASE_URL}/uploads/${item.crop?.image}`}
+                     src={item.crop.image || "https://via.placeholder.com/150"}
                       className="img-fluid rounded-3"
                       alt={item.crop?.name}
                       style={{ height: "70px", width: "70px", objectFit: "cover" }}
