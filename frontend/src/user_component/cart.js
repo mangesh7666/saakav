@@ -157,12 +157,16 @@ export default function Cart() {
               <div className="card mb-3 border-0 shadow-sm rounded-4" key={item.crop?._id}>
                 <div className="row g-0 align-items-center p-3">
                   <div className="col-3 col-md-2">
-                    <img
-                     src={item.crop.image || "https://via.placeholder.com/150"}
-                      className="img-fluid rounded-3"
-                      alt={item.crop?.name}
-                      style={{ height: "70px", width: "70px", objectFit: "cover" }}
-                    />
+                    {/* NEW UPDATED CODE */}
+<img
+  src={item.crop?.image || "https://via.placeholder.com/150"}
+  onError={(e) => {
+    e.target.src = "https://via.placeholder.com/150";
+  }}
+  className="img-fluid rounded-3"
+  alt={item.crop?.name}
+  style={{ height: "70px", width: "70px", objectFit: "cover" }}
+/>
                   </div>
 
                   <div className="col-9 col-md-4">
